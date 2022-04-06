@@ -161,13 +161,22 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         if (sShuffle == true)
         {
-            bool[] selected_state = { false, false, false, false, false };
-
+            List<int> selected_state = new List<int>{ 0,1,2,3,4};
+            int size = selected_state.Count-1;
             int count = 0;
             while (count < 3)
             {
-                int rand_idx = Random.Range(0, 5);
-                if (selected_state[rand_idx] == false)
+                int r_idx = Random.Range(0, size);
+                int rand_idx = selected_state[r_idx];
+                //Debug.Log(rand_list[r_idx]);
+                select_img[count].sprite = select_icons[rand_idx];
+                select_name[count].text = select_names[rand_idx];
+                select_discription[count].text = select_discriptions[rand_idx];
+
+                selected_state[rand_idx] = selected_state[size];
+                size -= 1;
+                count++;
+                /*if (selected_state[rand_idx] == false)
                 {
                     selected_state[rand_idx] = true;
                     select_img[count].sprite = select_icons[rand_idx];
@@ -178,7 +187,7 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     continue;
-                }
+                }*/
             }
             levelUp_pannel.SetActive(true);
             player_data.isPlaying = false;
