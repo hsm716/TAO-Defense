@@ -23,8 +23,8 @@ public class CloudMove : MonoBehaviour
     {
         if (player_data.isPlaying)
         {
-            cloud1.transform.position -= new Vector3(0.004f, 0f, 0f);
-            cloud2.transform.position -= new Vector3(0.004f, 0f, 0f);
+            cloud1.transform.position -= new Vector3(0.7f, 0f, 0f)*Time.deltaTime;
+            cloud2.transform.position -= new Vector3(0.7f, 0f, 0f) * Time.deltaTime;
             if (cloud1.transform.position.x <= -7.4f)
                 cloud1.transform.position = new Vector3(cloud2.transform.position.x + 7.7f, cloud2.transform.position.y,2f);
         }

@@ -51,7 +51,9 @@ public class Ballon_reward : MonoBehaviour
                     reward_1 = Instantiate(xp, transform.localPosition, Quaternion.identity);
                     reward_1.transform.parent = this.transform;
                     reward_1.transform.position = this.transform.position;
-                    player_data.exp += 10;
+                    reward_1.transform.localScale = new Vector3(0.3f,0.3f,1f);
+                    player_data.GetExp(10);
+                    //player_data.exp += 10;
                     Destroy(reward_1, 1.2f);
                 }
                 else
@@ -59,16 +61,18 @@ public class Ballon_reward : MonoBehaviour
                     reward_1 = Instantiate(coin, transform.localPosition, Quaternion.identity);
                     reward_1.transform.parent = this.transform;
                     reward_1.transform.position = this.transform.position;
-                    player_data.coin += 100;
+                    reward_1.transform.localScale = new Vector3(0.3f, 0.3f, 1f);
+                    player_data.GetCoin(100);
+                    //player_data.coin += 100;
                     Destroy(reward_1, 1.2f);
                 }
             }
         }
         else
         {
-            transform.position += new Vector3(0f, 5f, 0f);
+            transform.position += new Vector3(0f, 2.5f, 0f)*Time.deltaTime;
         }
-        reward_1.transform.position += new Vector3(0f, 1f, 0f);
+        reward_1.transform.position += new Vector3(0f, 0.7f, 0f)*Time.deltaTime;
     }
 
     public void Pang()

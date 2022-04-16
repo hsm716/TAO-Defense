@@ -116,13 +116,15 @@ public class Purchase_object : MonoBehaviour,IBeginDragHandler,IDragHandler,IEnd
                 if (trapType == Trap.trap1)
                 {
                     grabedObj.GetComponent<Trap1>().itsCol.enabled = true;
-                    player.coin -= 50f;
+                    player.LostCoin(50);
+                    //player.coin -= 50f;
                     grabedObj.transform.position = hitInformation.collider.transform.position + new Vector3(0f, 0f, -2f);
                 }
                 else if (trapType == Trap.trap2)
                 {
                     grabedObj.GetComponent<Trap2>().itsCol.enabled = true;
-                    player.coin -= 150f;
+                    player.LostCoin(150);
+                    //player.coin -= 150f;
                     grabedObj.transform.position = hitInformation.collider.transform.position + new Vector3(0f, 0f, -2f);
                 }
                 else if (trapType == Trap.trap_block)
@@ -133,7 +135,8 @@ public class Purchase_object : MonoBehaviour,IBeginDragHandler,IDragHandler,IEnd
                     // 체력있는 장애물인 경우, 체력바 img 활성화 처리
                     Block_obj.hp_img.enabled = true;
                     Block_obj.hpBack_img.enabled = true;
-                    player.coin -= 200f;
+                    player.LostCoin(200);
+                    //player.coin -= 200f;
                     grabedObj.transform.position = hitInformation.collider.transform.position + new Vector3(0f, 0.35f, -2f);
                 }
                 else if (trapType == Trap.trap_snowman)
@@ -143,7 +146,8 @@ public class Purchase_object : MonoBehaviour,IBeginDragHandler,IDragHandler,IEnd
                     Snowman_obj.itsCol.enabled = true;
                     Snowman_obj.hp_img.enabled = true;
                     Snowman_obj.hpBack_img.enabled = true;
-                    player.coin -= 300f;
+                    player.LostCoin(300);
+                    //player.coin -= 300f;
                     grabedObj.transform.position = hitInformation.collider.transform.position + new Vector3(0f, 0f, -2f);
                 }
                 else if (trapType == Trap.trap_roket)
@@ -152,7 +156,8 @@ public class Purchase_object : MonoBehaviour,IBeginDragHandler,IDragHandler,IEnd
                     RoketShooter.itsCol.enabled = true;
                     RoketShooter.hp_img.enabled = true;
                     RoketShooter.hpBack_img.enabled = true;
-                    player.coin -= 500f;
+                    player.LostCoin(500);
+                    //player.coin -= 500f;
                     grabedObj.transform.position = hitInformation.collider.transform.position + new Vector3(0.5f, -0.03f, -2f);
                 }
                 grabedObj.GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 1f);

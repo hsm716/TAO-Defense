@@ -161,33 +161,30 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         if (sShuffle == true)
         {
-            List<int> selected_state = new List<int>{ 0,1,2,3,4};
-            int size = selected_state.Count-1;
+            // 랜덤으로 중복된 결과를 뽑지 않기 위한 방법
+            List<int> selected_state = new List<int>{ 0,1,2,3,4}; // 0 3 2
+            // 처음 리스트 크기 값을 저장해둠.
+            int size = selected_state.Count;
+
+            //5개 중, 3가지만 뽑으면 되기 때문에 count가 3 미만일 때만 loop문을 수행
             int count = 0;
             while (count < 3)
             {
-                int r_idx = Random.Range(0, size);
-                int rand_idx = selected_state[r_idx];
-                //Debug.Log(rand_list[r_idx]);
+                // 랜덤으로 인덱스값을 추출하면서 사이즈 값도 줄임
+                int r_idx = Random.Range(0, --size);
+                
+                // 랜덤 인덱스가 가르키는 값을, rand_idx값에 저장하고
+                // 해당 값을 인덱스로해서 능력을 채택 함
+                int rand_idx = selected_state[r_idx]; 
                 select_img[count].sprite = select_icons[rand_idx];
                 select_name[count].text = select_names[rand_idx];
                 select_discription[count].text = select_discriptions[rand_idx];
 
-                selected_state[rand_idx] = selected_state[size];
-                size -= 1;
+                // 랜덤으로 추출된 값을 List의 인덱스로 하여 그 값을 List의 가장 끝 부분의 값을 갖게함.
+                selected_state[r_idx] = selected_state[size];
+                
+                // 이러한 과정을 통해서 한번 뽑은 값은 다시 선택될 수가 없다.
                 count++;
-                /*if (selected_state[rand_idx] == false)
-                {
-                    selected_state[rand_idx] = true;
-                    select_img[count].sprite = select_icons[rand_idx];
-                    select_name[count].text = select_names[rand_idx];
-                    select_discription[count].text = select_discriptions[rand_idx];
-                    count++;
-                }
-                else
-                {
-                    continue;
-                }*/
             }
             levelUp_pannel.SetActive(true);
             player_data.isPlaying = false;

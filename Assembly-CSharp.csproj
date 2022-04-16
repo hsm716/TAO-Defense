@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Enemy.cs" />
+    <Compile Include="Assets\GUI PRO Kit - Fantasy RPG\Scripts\PanelControlFantasyRPG.cs" />
     <Compile Include="Assets\Script\TrapSnowman.cs" />
     <Compile Include="Assets\Script\snowBall.cs" />
     <Compile Include="Assets\Script\SpawnLocation.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Assets\Script\thunder.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\Trap1.cs" />
+    <Compile Include="Assets\GUI PRO Kit - Fantasy RPG\Scripts\PanelFantasyRPG.cs" />
     <Compile Include="Assets\Resources\Low_Swordman\Demo\Scripts\CameraController.cs" />
     <Compile Include="Assets\Script\Roket.cs" />
     <Compile Include="Assets\Script\EnemySpawner.cs" />
@@ -76,9 +78,56 @@
     <Compile Include="Assets\Script\UI_Manager.cs" />
     <Compile Include="Assets\Resources\Low_Swordman\Demo\Scripts\GroundSensor.cs" />
     <Compile Include="Assets\Resources\Low_Swordman\Demo\Scripts\Swordman.cs" />
+    <Compile Include="Assets\GUI PRO Kit - Fantasy RPG\Extensions\UIParticle\UIParticleSystem.cs" />
     <Compile Include="Assets\Script\TrapBlock.cs" />
     <Compile Include="Assets\Resources\Low_Swordman\Demo\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Resources\Low_Swordman\Demo\Scripts\Demo_GM.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
+    <Compile Include="Assets\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXFireProjectile.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXMouseOrbit.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectCycler.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
+    <Compile Include="Assets\Epic Toon FX\Scripts\ETFXLightFade.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectControllerPooled.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
+    <Compile Include="Assets\Epic Toon FX\Scripts\ETFXRotation.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\Epic Toon FX\Prefabs\Combat\Combat FX.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\Epic Toon FX\Changelog.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\GUI PRO Kit - Fantasy RPG\Extensions\UIParticle\hidden particle.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\Epic Toon FX\Prefabs\Interactive\Interactive FX.txt" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\Epic Toon FX\Upgrade\URP Compatibility.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\GUI PRO Kit - Fantasy RPG\Extensions\UIParticle\UIAdditive.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

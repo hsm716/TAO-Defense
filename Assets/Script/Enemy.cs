@@ -120,7 +120,7 @@ public class Enemy : MonoBehaviour
             }
             if (player_data.poison_level >= 1)
             {
-                curHP -= maxHP * 0.0008f* player_data.poison_level;
+                curHP -= maxHP * 0.08f* player_data.poison_level*Time.deltaTime;
             }
 
             damageDelay += Time.deltaTime;
@@ -129,16 +129,8 @@ public class Enemy : MonoBehaviour
             {
                 state = State.Dead;
             }
-            if (EnemyTransform.position.x <= -3.25) // 화면 밖을 벗어나는 좌표
-            {
-                if (EnemyTransform.position.y >= -3f && EnemyTransform.position.y <= -1f)
-                {
-                    EnemyTransform.position = new Vector3(3.39f, 1.07f, 1f); // 2층 시작지점 좌표
-                }
-                else if (EnemyTransform.position.y >= 0.9f && EnemyTransform.position.y <= 1.5f)
-                    EnemyTransform.position = new Vector3(3.39f, 4.06f, 1f); // 3층 시작지점 좌표
+           
 
-            }
             if (inTrap2)
             {
                 curHP -= 1f;
@@ -178,11 +170,11 @@ public class Enemy : MonoBehaviour
         // Fever 타임이 아닐 경우, 정상 속도로 이동.
         if (gameManager.isFever==false) 
         {
-            EnemyTransform.position -= new Vector3(spd, 0f, 0f);
+            EnemyTransform.position -= new Vector3(spd, 0f, 0f) * Time.deltaTime;
         }// Fever 타임시 빨리 이동.
         else
         {
-            EnemyTransform.position -= new Vector3(spd*1.3f, 0f, 0f);
+            EnemyTransform.position -= new Vector3(spd*1.3f, 0f, 0f) * Time.deltaTime;
         }
        
     }
@@ -213,10 +205,24 @@ public class Enemy : MonoBehaviour
             inTrap2 = true;
         }
 
-        if (collision.CompareTag("DeadZone"))
+
+
+        if (collision.CompareTag("EndFloorPoint"))
         {
-            player_data.coin -= 100 * GameManager.instance.stage;
-            Destroy(this.gameObject);
+            if (collision.name.Contains("1"))
+            {
+                transform.position =  EnemySpawner.instance.SpawnPoints[1].position;
+            }
+            else if (collision.name.Contains("2"))
+            {
+                transform.position = EnemySpawner.instance.SpawnPoints[2].position;
+            }
+            else if (collision.name.Contains("3"))
+            {
+                //player_data.coin -= 100 * GameManager.instance.stage;
+                player_data.LostCoin(100 * GameManager.instance.stage);
+                Destroy(this.gameObject);
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -243,8 +249,10 @@ public class Enemy : MonoBehaviour
             if (isEarn==false&&curHP <= 0)
             {
                 // 체력이 0이되면, 플레이어의 골드와 경험치를 올려준다.
-                player_data.coin += setCoin;
-                player_data.exp += exp_;
+                player_data.GetCoin((int)setCoin);
+                //player_data.coin += setCoin;
+                player_data.GetExp((int)exp_);
+                //player_data.exp += exp_;
                 
                 isEarn = true;
 
@@ -307,10 +315,10 @@ public class Enemy : MonoBehaviour
     {
         if (isSlow == false)
         {
-            spd -= 0.001f;
+            spd -= 0.2f;
             isSlow = true;
             yield return new WaitForSeconds(2f);
-            spd += 0.001f;
+            spd += 0.2f;
             isSlow = false;
         }
     }

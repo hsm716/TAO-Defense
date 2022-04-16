@@ -218,6 +218,43 @@ public class Player : MonoBehaviour
             }
         }
     }
+    public ParticleSystem effect_GetCoin;
+    public ParticleSystem effect_LostCoin;
+    public void GetCoin(int amount)
+    {
+        //coin += amount;
+        effect_GetCoin.Play();
+        StartCoroutine(ChangeDegree(amount, 1, 0));
+    }
+    public void LostCoin(int amount)
+    {
+        //coin -= amount;
+        effect_LostCoin.Play();
+        StartCoroutine(ChangeDegree(amount, -1,0));
+    }
+
+    public void GetExp(int amount)
+    {
+        //coin += amount;
+        StartCoroutine(ChangeDegree(amount, 1, 1));
+    }
+
+    IEnumerator ChangeDegree(int amount,int plus_minus,int type)
+    {
+     
+
+        while (amount >= 0)
+        {
+            if (type == 0)
+                coin += plus_minus;
+            else if (type == 1)
+                exp += plus_minus;
+            amount--;
+            yield return new WaitForSeconds(0.005f);
+        }
+
+    }
+
     IEnumerator ChargeBubble(GameObject chargeAttack,int bubbleCount)
     {
         for (int i = 0; i < bubbleCount; i++)
@@ -277,7 +314,8 @@ public class Player : MonoBehaviour
     {
         if (coin >= 150)
         {
-            coin -= 150;
+            LostCoin(150);
+            //coin -= 150;
             atk += 5;
         }
     }
@@ -301,17 +339,25 @@ public class Player : MonoBehaviour
     {
         Application.Quit();
     }
+    public Image UI_StyleBack_img;
+    public Sprite UI_Normal_sp;
+    public Sprite UI_Water_sp;
+    public Sprite UI_Bubble_sp;
     public void selectBubble()
     {
         tType = touchType.bubble;
+        UI_StyleBack_img.sprite = UI_Bubble_sp;
+        
     }
     public void selectWater()
     {
         tType = touchType.water;
+        UI_StyleBack_img.sprite = UI_Water_sp;
     }
     public void selectNormal()
     {
         tType = touchType.normal;
+        UI_StyleBack_img.sprite = UI_Normal_sp;
     }
 
 }
